@@ -1,15 +1,14 @@
 import type { Metadata } from 'next'
-import { Space_Mono, JetBrains_Mono } from 'next/font/google'
+import { Outfit, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _spaceMono = Space_Mono({ weight: '400', subsets: ["latin"] });
-const _jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] });
+const fontOutfit = Outfit({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], variable: "--font-outfit" })
+const fontMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" })
 
 export const metadata: Metadata = {
   title: 'Chronos - Premium Clock Display',
   description: 'Experience precision timekeeping with real-time accuracy to the second. Location-aware time display with customizable settings.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
@@ -35,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans antialiased">
+    <html lang="en" className="dark">
+      <body className={`${fontOutfit.variable} ${fontMono.variable} font-sans antialiased overflow-hidden min-h-screen bg-black`}>
         {children}
         <Analytics />
       </body>

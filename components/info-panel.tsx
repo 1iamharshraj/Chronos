@@ -15,7 +15,7 @@ export default function InfoPanel({ showDate, showLocation }: InfoPanelProps) {
 
   useEffect(() => {
     setMounted(true);
-    
+
     const updateDate = () => {
       const now = new Date();
       const dateStr = now.toLocaleDateString('en-US', {
@@ -26,7 +26,7 @@ export default function InfoPanel({ showDate, showLocation }: InfoPanelProps) {
       });
       setDate(dateStr);
     };
-    
+
     updateDate();
   }, []);
 
@@ -42,16 +42,16 @@ export default function InfoPanel({ showDate, showLocation }: InfoPanelProps) {
           navigator.geolocation.getCurrentPosition(
             async (position) => {
               const { latitude, longitude } = position.coords;
-              
+
               try {
                 const response = await fetch(
                   `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
                 );
                 const data = await response.json();
-                
+
                 const city = data.address?.city || data.address?.town || data.address?.village;
                 const country = data.address?.country;
-                
+
                 if (city && country) {
                   setLocation(`${city}, ${country}`);
                   setLocationAvailable(true);
@@ -87,13 +87,13 @@ export default function InfoPanel({ showDate, showLocation }: InfoPanelProps) {
   return (
     <div className="flex flex-col items-center gap-4 text-base md:text-lg lg:text-xl">
       {showDate && (
-        <div className="text-muted-foreground">
+        <div className="text-white/70 tracking-wide font-light">
           {date}
         </div>
       )}
       {showLocation && locationAvailable && (
-        <div className="text-muted-foreground">
-          📍 {location}
+        <div className="text-white/70 tracking-wide font-light flex items-center gap-2">
+          <span className="text-white/40">📍</span> {location}
         </div>
       )}
     </div>

@@ -94,7 +94,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-background text-foreground overflow-hidden">
+    <main className="min-h-screen text-foreground overflow-hidden">
       {/* Main content */}
       <div className="h-screen flex flex-col items-center justify-center px-4 pb-24">
         <div className="w-full max-w-4xl space-y-12">

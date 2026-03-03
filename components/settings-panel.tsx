@@ -30,8 +30,8 @@ export default function SettingsPanel({
   onClose,
 }: SettingsPanelProps) {
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-card border border-border rounded-lg p-6 w-full max-w-md shadow-2xl">
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in duration-500">
+      <div className="glass-panel rounded-3xl p-8 w-full max-w-md animate-in zoom-in-95 duration-500">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-semibold text-foreground">Display Settings</h2>
           <Button

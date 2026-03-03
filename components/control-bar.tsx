@@ -37,7 +37,7 @@ export default function ControlBar({
     const now = new Date();
     const timeStr = now.toLocaleString();
     const text = `Current time: ${timeStr}`;
-    
+
     if (navigator.share) {
       navigator.share({ text });
     } else {
@@ -48,7 +48,7 @@ export default function ControlBar({
 
   return (
     <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40">
-      <div className="flex gap-2 bg-card border border-border rounded-full p-2 shadow-lg backdrop-blur-md">
+      <div className="flex gap-2 glass rounded-full p-2 transition-all duration-300 hover:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]">
         <Button
           variant="ghost"
           size="icon"
